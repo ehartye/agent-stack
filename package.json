@@ -1,0 +1,10 @@
+{
+  "name": "agent-stack",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Compare and select frontier models, cloud agent backends and frontend stacks from dated, sourced facts.",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test \"tests/*.test.mjs\"" }
+}

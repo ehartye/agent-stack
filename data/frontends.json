@@ -1,0 +1,971 @@
+{
+  "schema": "agent-stack/facts@1",
+  "title": "Frontend stacks and hosting for AI products",
+  "as_of": "2026-11-06",
+  "sources": {
+    "vercel_ai_sdk_7": {
+      "title": "Vercel: AI SDK 7 is now available (2026-06-25)",
+      "url": "https://vercel.com/blog/ai-sdk-7",
+      "kind": "vendor"
+    },
+    "vercel_ai_sdk_6": {
+      "title": "Vercel: AI SDK 6 (2025-12-22)",
+      "url": "https://vercel.com/blog/ai-sdk-6",
+      "kind": "vendor"
+    },
+    "ai_sdk_migration_7": {
+      "title": "AI SDK docs: Migrate 6.x to 7.0",
+      "url": "https://ai-sdk.dev/docs/migration-guides/migration-guide-7-0",
+      "kind": "vendor"
+    },
+    "ai_sdk_tool_approvals": {
+      "title": "AI SDK docs: Tool approvals",
+      "url": "https://ai-sdk.dev/docs/agents/tool-approvals",
+      "kind": "vendor"
+    },
+    "ai_sdk_ui_overview": {
+      "title": "AI SDK docs: AI SDK UI overview (framework support table)",
+      "url": "https://ai-sdk.dev/docs/ai-sdk-ui/overview",
+      "kind": "vendor"
+    },
+    "ai_sdk_use_chat_ref": {
+      "title": "AI SDK docs: useChat reference",
+      "url": "https://ai-sdk.dev/docs/reference/ai-sdk-ui/use-chat",
+      "kind": "vendor"
+    },
+    "ai_sdk_svelte_quickstart": {
+      "title": "AI SDK docs: Svelte quickstart",
+      "url": "https://ai-sdk.dev/docs/getting-started/svelte",
+      "kind": "vendor"
+    },
+    "nextjs_16_4": {
+      "title": "Next.js 16.4 release post (2026-10-06)",
+      "url": "https://nextjs.org/blog/next-16-4",
+      "kind": "vendor"
+    },
+    "nextjs_16": {
+      "title": "Next.js 16 release post (2025-10-21)",
+      "url": "https://nextjs.org/blog/next-16",
+      "kind": "vendor"
+    },
+    "sveltekit_3": {
+      "title": "Svelte: SvelteKit 3 is here (2026-10-01)",
+      "url": "https://svelte.dev/blog/sveltekit-3-is-here",
+      "kind": "vendor"
+    },
+    "stateofjs_meta": {
+      "title": "State of JavaScript 2025: Meta-Frameworks",
+      "url": "https://2025.stateofjs.com/en-US/libraries/meta-frameworks/",
+      "kind": "independent"
+    },
+    "stateofjs_frontend": {
+      "title": "State of JavaScript 2025: Front-end Frameworks",
+      "url": "https://2025.stateofjs.com/en-US/libraries/front-end-frameworks/",
+      "kind": "independent"
+    },
+    "agui_overview": {
+      "title": "AG-UI protocol: introduction and supported integrations",
+      "url": "https://docs.ag-ui.com/introduction",
+      "kind": "standard"
+    },
+    "agui_events": {
+      "title": "AG-UI protocol: events reference",
+      "url": "https://docs.ag-ui.com/concepts/events",
+      "kind": "standard"
+    },
+    "agui_interrupts": {
+      "title": "AG-UI protocol: interrupts",
+      "url": "https://docs.ag-ui.com/concepts/interrupts",
+      "kind": "standard"
+    },
+    "mcp_apps": {
+      "title": "Model Context Protocol: MCP Apps overview",
+      "url": "https://modelcontextprotocol.io/extensions/apps/overview",
+      "kind": "standard"
+    },
+    "openai_chatgpt_ui": {
+      "title": "OpenAI: Add UI to your MCP server",
+      "url": "https://developers.openai.com/plugins/build/chatgpt-ui",
+      "kind": "vendor"
+    },
+    "maf_agui": {
+      "title": "Microsoft Learn: AG-UI integration with Agent Framework",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/",
+      "kind": "vendor"
+    },
+    "maf_1_0": {
+      "title": "Microsoft: Agent Framework version 1.0 announcement",
+      "url": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/",
+      "kind": "vendor"
+    },
+    "foundry_hosted_agents": {
+      "title": "Microsoft Learn: Hosted agents in Foundry Agent Service",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents",
+      "kind": "vendor"
+    },
+    "copilotkit_docs": {
+      "title": "CopilotKit docs: landing page",
+      "url": "https://docs.copilotkit.ai",
+      "kind": "vendor"
+    },
+    "copilotkit_quickstart": {
+      "title": "CopilotKit docs: Quickstart",
+      "url": "https://docs.copilotkit.ai/quickstart",
+      "kind": "vendor"
+    },
+    "copilotkit_genui": {
+      "title": "CopilotKit docs: Display-only generative UI",
+      "url": "https://docs.copilotkit.ai/generative-ui",
+      "kind": "vendor"
+    },
+    "copilotkit_adk": {
+      "title": "CopilotKit docs: Google ADK introduction",
+      "url": "https://docs.copilotkit.ai/google-adk",
+      "kind": "vendor"
+    },
+    "copilotkit_streams": {
+      "title": "CopilotKit docs: AG-UI Streams (Intelligence)",
+      "url": "https://docs.copilotkit.ai/AG-UI-Streams",
+      "kind": "vendor"
+    },
+    "copilotkit_agentcore_blog": {
+      "title": "CopilotKit blog: Generative UI on AgentCore with AG-UI (2026-06-30)",
+      "url": "https://www.copilotkit.ai/blog/generative-ui-on-agentcore-with-copilotkit",
+      "kind": "vendor"
+    },
+    "google_adk": {
+      "title": "Google: Agent Development Kit homepage",
+      "url": "https://adk.dev/",
+      "kind": "vendor"
+    },
+    "aws_agentcore_agui": {
+      "title": "AWS docs: Deploy AG-UI servers in AgentCore Runtime",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-agui.html",
+      "kind": "vendor"
+    },
+    "aws_agentcore_agui_announcement": {
+      "title": "AWS: AgentCore Runtime now supports the AG-UI protocol (2026-03-13)",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-ag-ui-protocol",
+      "kind": "vendor"
+    },
+    "aws_agentcore_release_notes": {
+      "title": "AWS docs: Amazon Bedrock AgentCore release notes",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html",
+      "kind": "vendor"
+    },
+    "aws_amplify_nextjs": {
+      "title": "AWS docs: Amplify support for Next.js",
+      "url": "https://docs.aws.amazon.com/amplify/latest/userguide/ssr-amplify-support.html",
+      "kind": "vendor"
+    },
+    "azure_swa_nextjs": {
+      "title": "Microsoft Learn: Next.js support on Azure Static Web Apps",
+      "url": "https://learn.microsoft.com/en-us/azure/static-web-apps/nextjs",
+      "kind": "vendor"
+    },
+    "azure_ca_waf": {
+      "title": "Microsoft Learn: Well-Architected guide for Azure Container Apps",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-container-apps",
+      "kind": "vendor"
+    },
+    "azure_ca_ingress": {
+      "title": "Microsoft Learn: Ingress in Azure Container Apps",
+      "url": "https://learn.microsoft.com/en-us/azure/container-apps/ingress-overview",
+      "kind": "vendor"
+    },
+    "gcp_run_nextjs": {
+      "title": "Google Cloud: Quickstart, deploy a Next.js app to Cloud Run",
+      "url": "https://docs.cloud.google.com/run/docs/quickstarts/frameworks/deploy-nextjs-service",
+      "kind": "vendor"
+    },
+    "gcp_run_agents": {
+      "title": "Google Cloud: Host AI agents on Cloud Run",
+      "url": "https://docs.cloud.google.com/run/docs/ai-agents",
+      "kind": "vendor"
+    },
+    "gcp_run_timeout": {
+      "title": "Google Cloud: Cloud Run request timeout",
+      "url": "https://docs.cloud.google.com/run/docs/configuring/request-timeout",
+      "kind": "vendor"
+    },
+    "firebase_app_hosting": {
+      "title": "Firebase: App Hosting overview",
+      "url": "https://firebase.google.com/docs/app-hosting",
+      "kind": "vendor"
+    },
+    "adk_agui": {
+      "title": "Google ADK docs: AG-UI user interface for ADK",
+      "url": "https://adk.dev/integrations/ag-ui/",
+      "kind": "vendor"
+    },
+    "adk_copilotkit": {
+      "title": "Google ADK docs: CopilotKit user interface for ADK",
+      "url": "https://adk.dev/integrations/copilotkit/",
+      "kind": "vendor"
+    },
+    "copilotkit_vue": {
+      "title": "CopilotKit docs: Vue quickstart",
+      "url": "https://docs.copilotkit.ai/vue",
+      "kind": "vendor"
+    },
+    "copilotkit_vue_genui": {
+      "title": "CopilotKit docs: Vue components as tools",
+      "url": "https://docs.copilotkit.ai/vue/generative-ui/tool-based",
+      "kind": "vendor"
+    },
+    "copilotkit_vue_hitl": {
+      "title": "CopilotKit docs: Vue human-in-the-loop",
+      "url": "https://docs.copilotkit.ai/vue/human-in-the-loop",
+      "kind": "vendor"
+    },
+    "copilotkit_angular": {
+      "title": "CopilotKit docs: Angular quickstart",
+      "url": "https://docs.copilotkit.ai/angular",
+      "kind": "vendor"
+    },
+    "copilotkit_angular_genui": {
+      "title": "CopilotKit docs: Angular frontend tools and generative UI",
+      "url": "https://docs.copilotkit.ai/angular/generative-ui",
+      "kind": "vendor"
+    },
+    "copilotkit_angular_hitl": {
+      "title": "CopilotKit docs: Angular human-in-the-loop and interrupts",
+      "url": "https://docs.copilotkit.ai/angular/human-in-the-loop",
+      "kind": "vendor"
+    },
+    "copilotkit_mcp_apps": {
+      "title": "CopilotKit docs: MCP Apps",
+      "url": "https://docs.copilotkit.ai/generative-ui/mcp-apps",
+      "kind": "vendor"
+    },
+    "ai_sdk_transport": {
+      "title": "AI SDK docs: Transport",
+      "url": "https://ai-sdk.dev/docs/ai-sdk-ui/transport",
+      "kind": "vendor"
+    },
+    "chat_sdk_web": {
+      "title": "Chat SDK docs: Web adapter",
+      "url": "https://chat-sdk.dev/adapters/official/web",
+      "kind": "vendor"
+    },
+    "aws_ecs_fargate": {
+      "title": "AWS docs: Architect for AWS Fargate for Amazon ECS",
+      "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html",
+      "kind": "vendor"
+    },
+    "aws_ecs_express": {
+      "title": "AWS docs: Amazon ECS Express Mode",
+      "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html",
+      "kind": "vendor"
+    },
+    "aws_alb_attributes": {
+      "title": "AWS docs: Edit attributes for your Application Load Balancer",
+      "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-load-balancer-attributes.html",
+      "kind": "vendor"
+    },
+    "aws_cloudfront_origin": {
+      "title": "AWS docs: CloudFront origin settings",
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html",
+      "kind": "vendor"
+    },
+    "aws_lambda_streaming": {
+      "title": "AWS docs: Response streaming for Lambda functions",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html",
+      "kind": "vendor"
+    },
+    "aws_app_runner": {
+      "title": "AWS docs: What is AWS App Runner?",
+      "url": "https://docs.aws.amazon.com/apprunner/latest/dg/what-is-apprunner.html",
+      "kind": "vendor"
+    },
+    "azure_ca_quotas": {
+      "title": "Microsoft Learn: Quotas for Azure Container Apps",
+      "url": "https://learn.microsoft.com/en-us/azure/container-apps/quotas",
+      "kind": "vendor"
+    },
+    "gcp_run_quotas": {
+      "title": "Google Cloud: Cloud Run quotas and limits",
+      "url": "https://docs.cloud.google.com/run/quotas",
+      "kind": "vendor"
+    }
+  },
+  "fact_definitions": {
+    "streaming_chat": "A first-party page shows model or agent output streaming into a chat UI as it is produced.",
+    "tool_approval": "A first-party page documents pausing a tool call for a human decision, and names the UI state or event that carries it. Where the approval is enforced is a separate question; see the approvals reference.",
+    "generative_ui": "The app can render its own components from tool calls, or host a UI that a tool supplies.",
+    "agent_protocol_support": "Speaks or renders an open agent protocol (MCP, MCP Apps, AG-UI) without custom wiring.",
+    "multi_client_reuse": "One agent backend can serve several kinds of client (web, mobile, chat platform) through the same documented contract.",
+    "agentcore_fit": "A first-party page from the cloud vendor or the stack vendor shows this stack in front of Amazon Bedrock AgentCore Runtime.",
+    "foundry_fit": "A first-party page from the cloud vendor or the stack vendor shows this stack in front of Microsoft Agent Framework or Foundry hosted agents.",
+    "google_adk_fit": "A first-party page from the cloud vendor or the stack vendor shows this stack in front of Google's Agent Development Kit.",
+    "survey_satisfaction": "Independent survey evidence on how satisfied users are with the stack. The note says what the survey did and did not measure.",
+    "release_churn": "The vendor documents a migration path (codemod or migration command) for its latest breaking change. The note carries the observed cadence, which is the real churn signal.",
+    "nextjs_ssr": "The host's own page states that server-rendered Next.js runs there, and for which versions.",
+    "streaming_responses": "The host's own page states whether streamed HTTP responses work. no is used only where the page lists streaming as unsupported.",
+    "size_or_runtime_limits": "The host's own page states numeric size or request-duration limits that bound a bundle or a streamed AI response. The note carries the numbers.",
+    "linked_backend": "The host's own page describes wiring an agent backend to the front end as a managed link or same-network service.",
+    "ga_status": "The host's own page states that the Next.js path is generally available. A preview label is recorded as conditional, not no. no is used only where the page says the service is closed to new customers."
+  },
+  "options": [
+    {
+      "id": "nextjs-ai-sdk",
+      "name": "Next.js 16 with the AI SDK 7 (React)",
+      "kind": "stack",
+      "layer": "framework",
+      "facts": {
+        "streaming_chat": {
+          "value": "yes",
+          "note": "AI SDK 6 streams an agent into the route response and renders message parts with useChat. AI SDK 7 moves the helpers to stateless toUIMessageStream and createUIMessageStreamResponse and deprecates the result-object methods.",
+          "sources": [
+            "vercel_ai_sdk_6",
+            "ai_sdk_migration_7"
+          ]
+        },
+        "tool_approval": {
+          "value": "yes",
+          "note": "AI SDK 7 sets toolApproval on the agent or call (per-tool, per-tool function or catch-all) for ToolLoopAgent, generateText and streamText. The agent emits an approval request, the app adds an approval response to the messages and calls the agent again. The React UI state is approval-requested. WorkflowAgent keeps needsApproval instead. Subagent tools cannot use toolApproval, and provider-executed tools do not use AI SDK approvals. HMAC signing of approvals is opt-in; without a secret, approvals are not signed. The secret option is named experimental_ on the vendor page.",
+          "sources": [
+            "ai_sdk_tool_approvals",
+            "vercel_ai_sdk_7",
+            "ai_sdk_migration_7"
+          ]
+        },
+        "generative_ui": {
+          "value": "yes",
+          "note": "Typed tool parts (tool-name) are rendered by app components. MCP App rendering exists in AI SDK 7 as experimental_MCPAppRenderer in the React package, with a host-side allowedTools list.",
+          "sources": [
+            "vercel_ai_sdk_6",
+            "vercel_ai_sdk_7",
+            "ai_sdk_ui_overview"
+          ]
+        },
+        "agent_protocol_support": {
+          "value": "conditional",
+          "note": "MCP client is stable since AI SDK 6, and AI SDK 7 renders MCP Apps (experimental export). The AI SDK 7 post does not mention AG-UI. Vercel's Chat SDK Web adapter, linked from the AI SDK transport page, can serve one endpoint as either the AI SDK UI message stream or AG-UI with the same handlers. That is a setting on a Chat SDK bot, not a bridge from an AI SDK stream, and no page reviewed describes such a bridge.",
+          "sources": [
+            "vercel_ai_sdk_6",
+            "vercel_ai_sdk_7",
+            "ai_sdk_transport",
+            "chat_sdk_web"
+          ]
+        },
+        "multi_client_reuse": {
+          "value": "conditional",
+          "note": "The UI message stream is consumed through the SDK's own bindings. The UI overview lists React, Svelte, Vue and Angular, with SolidJS as a community project. No first-party binding for a native mobile client is listed.",
+          "sources": [
+            "ai_sdk_ui_overview"
+          ]
+        },
+        "agentcore_fit": {
+          "value": "unstated",
+          "note": "The AI SDK 7 post and the AgentCore AG-UI page are both silent on putting the AI SDK in front of an AgentCore Runtime. A route handler that calls the runtime and re-streams the result is a custom bridge.",
+          "sources": [
+            "vercel_ai_sdk_7",
+            "aws_agentcore_agui"
+          ]
+        },
+        "foundry_fit": {
+          "value": "unstated",
+          "note": "The AI SDK 7 post and the Foundry hosted-agents page are both silent on each other.",
+          "sources": [
+            "vercel_ai_sdk_7",
+            "foundry_hosted_agents"
+          ]
+        },
+        "google_adk_fit": {
+          "value": "unstated",
+          "note": "The AI SDK 7 post and the ADK homepage are both silent on each other.",
+          "sources": [
+            "vercel_ai_sdk_7",
+            "google_adk"
+          ]
+        },
+        "survey_satisfaction": {
+          "value": "conditional",
+          "note": "State of JS 2025 prose: Next.js keeps gaining usage and is dominating meta-frameworks while losing satisfaction, with a 39% satisfaction-ratio gap to Astro. Next.js issues ranks second among meta-framework pain-point topics in the chart's filtered view. The front-end page's prose says React tops what developers struggle with, while its ranked topics start with cognitive overload and show no React row. The pages reviewed are partial: chart values are detached from their labels, and no sample or method text was available. The survey is not about AI products.",
+          "sources": [
+            "stateofjs_meta",
+            "stateofjs_frontend"
+          ]
+        },
+        "release_churn": {
+          "value": "yes",
+          "note": "A codemod path exists: the AI SDK 7 migration guide lists 32 codemods, and Next.js ships a codemod upgrade and next upgrade --agent. Cadence is fast: AI SDK 6 on 2025-12-22 and 7 on 2026-06-25; Next.js 16 on 2025-10-21 and 16.4 on 2026-10-06, which states Cache Components become the default in Next.js 17. AI SDK 7 needs Node.js 22 or later and is ESM only.",
+          "sources": [
+            "ai_sdk_migration_7",
+            "vercel_ai_sdk_6",
+            "vercel_ai_sdk_7",
+            "nextjs_16",
+            "nextjs_16_4"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sveltekit-ai-sdk-svelte",
+      "name": "SvelteKit 3 with the AI SDK Svelte bindings",
+      "kind": "stack",
+      "layer": "framework",
+      "facts": {
+        "streaming_chat": {
+          "value": "yes",
+          "note": "The Svelte quickstart builds a streaming chat with the Chat class from the Svelte package, a weather tool and multi-step calls. It requires Node.js 22 or later.",
+          "sources": [
+            "ai_sdk_svelte_quickstart"
+          ]
+        },
+        "tool_approval": {
+          "value": "conditional",
+          "note": "The server-side toolApproval policy does not depend on the UI framework. The approval UI guides show only React (useChat). The shared useChat reference lists addToolApprovalResponse and lists the Svelte Chat import beside React and Vue, but no first-party page shows a Svelte approval UI and the Svelte quickstart shows none. Spike the approval round trip before committing.",
+          "sources": [
+            "ai_sdk_tool_approvals",
+            "ai_sdk_use_chat_ref",
+            "ai_sdk_svelte_quickstart"
+          ]
+        },
+        "generative_ui": {
+          "value": "conditional",
+          "note": "The quickstart renders typed tool parts, but only as JSON text. No first-party Svelte generative-UI guide was found. The framework table on the UI overview shows MCP Apps rendering unsupported for Svelte.",
+          "sources": [
+            "ai_sdk_svelte_quickstart",
+            "ai_sdk_ui_overview"
+          ]
+        },
+        "agent_protocol_support": {
+          "value": "conditional",
+          "note": "MCP tools work server-side in any framework. MCP Apps ships a Svelte starter template for authoring an app, but hosting one inside a Svelte chat is marked unsupported in the AI SDK UI table. No page documents a Svelte AG-UI client: the Chat SDK Web adapter pairs Svelte with its AI SDK protocol and AG-UI with TanStack AI clients.",
+          "sources": [
+            "mcp_apps",
+            "ai_sdk_ui_overview",
+            "copilotkit_docs",
+            "chat_sdk_web"
+          ]
+        },
+        "multi_client_reuse": {
+          "value": "conditional",
+          "note": "Same SDK stream contract and the same framework list as the Next.js stack; nothing extra for mobile or chat platforms.",
+          "sources": [
+            "ai_sdk_ui_overview"
+          ]
+        },
+        "agentcore_fit": {
+          "value": "unstated",
+          "note": "The Svelte quickstart and the AgentCore AG-UI page are silent on each other.",
+          "sources": [
+            "ai_sdk_svelte_quickstart",
+            "aws_agentcore_agui"
+          ]
+        },
+        "foundry_fit": {
+          "value": "unstated",
+          "note": "The Svelte quickstart and the Foundry hosted-agents page are silent on each other.",
+          "sources": [
+            "ai_sdk_svelte_quickstart",
+            "foundry_hosted_agents"
+          ]
+        },
+        "google_adk_fit": {
+          "value": "unstated",
+          "note": "The Svelte quickstart and the ADK homepage are silent on each other.",
+          "sources": [
+            "ai_sdk_svelte_quickstart",
+            "google_adk"
+          ]
+        },
+        "survey_satisfaction": {
+          "value": "unstated",
+          "note": "The State of JS 2025 pages reviewed name SvelteKit and Svelte only as chart series. Their values are not available here and the commentary does not discuss them, so this is a null, not a weak score.",
+          "sources": [
+            "stateofjs_meta",
+            "stateofjs_frontend"
+          ]
+        },
+        "release_churn": {
+          "value": "conditional",
+          "note": "SvelteKit 3 (2026-10-01) ships npx sv migrate sveltekit-3 and moves config to vite.config.ts and the lib alias to a subpath import. The AI SDK 7 migration guide has a Vue section and no Svelte section, so the Svelte binding's v7 changes are undocumented there. Remote functions are labelled not ready and sit behind an experimental flag.",
+          "sources": [
+            "sveltekit_3",
+            "ai_sdk_migration_7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "protocol-layer",
+      "name": "Protocol-led layer: AG-UI with CopilotKit, MCP Apps",
+      "kind": "stack",
+      "layer": "protocol",
+      "facts": {
+        "streaming_chat": {
+          "value": "yes",
+          "note": "AG-UI is an event stream over HTTP with SSE or WebSocket. CopilotKit's quickstart builds a chat on Next.js, and it publishes a Vue quickstart with a chat UI and Angular guides.",
+          "sources": [
+            "agui_overview",
+            "copilotkit_quickstart",
+            "copilotkit_vue",
+            "copilotkit_angular"
+          ]
+        },
+        "tool_approval": {
+          "value": "yes",
+          "note": "AG-UI: a run can finish with an interrupt outcome and the client resumes with a resume array that answers every open interrupt. Microsoft lists approval workflows among AG-UI features, and its .NET integration section says tool execution and approval stay part of Agent Framework. CopilotKit's human-in-the-loop hook returns the user's answer as a tool result, with guides for React, Vue and Angular. The decision is client-supplied either way, so the server must verify it.",
+          "sources": [
+            "agui_events",
+            "agui_interrupts",
+            "maf_agui",
+            "copilotkit_agentcore_blog",
+            "copilotkit_vue_hitl",
+            "copilotkit_angular_hitl"
+          ]
+        },
+        "generative_ui": {
+          "value": "yes",
+          "note": "CopilotKit registers a React or Vue component as a tool and renders it from the streamed tool arguments, and its Angular guide covers frontend tools and generative UI. AG-UI lists A2UI and MCP Apps as supported generative-UI specs. CopilotKit's MCP Apps page says it fetches and renders the UI component in the chat, and its Angular guide adds provideMCPApps().",
+          "sources": [
+            "copilotkit_genui",
+            "agui_overview",
+            "mcp_apps",
+            "copilotkit_vue_genui",
+            "copilotkit_angular_genui",
+            "copilotkit_mcp_apps"
+          ]
+        },
+        "agent_protocol_support": {
+          "value": "yes",
+          "note": "AG-UI is the protocol. The AG-UI project lists MCP Apps and A2UI as supported, CopilotKit says it renders MCP Apps in its chat, and OpenAI says ChatGPT implements the MCP Apps standard. Hosting an MCP App in your own chat without CopilotKit means implementing or adopting a host, which is separate work.",
+          "sources": [
+            "agui_overview",
+            "mcp_apps",
+            "openai_chatgpt_ui",
+            "copilotkit_mcp_apps"
+          ]
+        },
+        "multi_client_reuse": {
+          "value": "conditional",
+          "note": "The AG-UI project lists CopilotKit, a terminal client, Slack and Teams channels and React Native as clients, and Microsoft says AG-UI gives one hosted agent several clients. CopilotKit publishes Vue and Angular guides for chat, generative UI and human-in-the-loop, and Google's ADK page names React, Angular, Vue, React Native and Slack. No page documents a Svelte client. Cross-device thread sync and event replay belong to CopilotKit's hosted Intelligence layer, which its own page says is not a guarantee of the protocol.",
+          "sources": [
+            "agui_overview",
+            "maf_agui",
+            "copilotkit_docs",
+            "copilotkit_streams",
+            "copilotkit_vue",
+            "copilotkit_angular",
+            "adk_copilotkit"
+          ]
+        },
+        "agentcore_fit": {
+          "value": "yes",
+          "note": "AWS announced AgentCore Runtime support for AG-UI on 2026-03-13 in fourteen regions. The runtime acts as a proxy: the container serves port 8080 with /invocations for SSE or /ws for WebSocket, and auth is SigV4 or OAuth 2.0. The AG-UI project lists AgentCore as a first-party deployment platform.",
+          "sources": [
+            "aws_agentcore_agui",
+            "aws_agentcore_agui_announcement",
+            "aws_agentcore_release_notes",
+            "copilotkit_agentcore_blog"
+          ]
+        },
+        "foundry_fit": {
+          "value": "conditional",
+          "note": "Microsoft documents the AG-UI integration for Agent Framework (Python and .NET) and lists CopilotKit adapters. The .NET hosting package installs with --prerelease. For Foundry hosted agents, Microsoft says to use the Invocations protocol for AG-UI because it is not OpenAI-compatible and needs raw SSE.",
+          "sources": [
+            "maf_agui",
+            "maf_1_0",
+            "foundry_hosted_agents"
+          ]
+        },
+        "google_adk_fit": {
+          "value": "yes",
+          "note": "Google's ADK docs publish an AG-UI integration page, marked supported in Python, TypeScript, Go and Java, and a CopilotKit page (Python) that exposes the agent through the ag-ui-adk package. CopilotKit's ADK introduction runs the agent as its own service behind that bridge. The ADK homepage does not mention AG-UI, so cite the integration pages.",
+          "sources": [
+            "adk_agui",
+            "adk_copilotkit",
+            "agui_overview",
+            "copilotkit_adk"
+          ]
+        },
+        "survey_satisfaction": {
+          "value": "unstated",
+          "note": "The State of JS pages cover frameworks, not agent protocols or CopilotKit.",
+          "sources": [
+            "stateofjs_meta"
+          ]
+        },
+        "release_churn": {
+          "value": "conditional",
+          "note": "No dated releases or versions appear on the AG-UI, MCP Apps or CopilotKit pages. The events page lists THINKING_* events as deprecated and to be removed in 1.0.0, with one-for-one REASONING_* replacements but no codemod. AWS's tutorial pins the ag-ui-protocol package to 0.1.19 or later and below 0.2. That is a package version; no page reviewed states a protocol version.",
+          "sources": [
+            "agui_events",
+            "aws_agentcore_agui",
+            "copilotkit_docs"
+          ]
+        }
+      }
+    },
+    {
+      "id": "amplify",
+      "name": "AWS Amplify Hosting (compute SSR)",
+      "kind": "hosting",
+      "cloud": "aws",
+      "facts": {
+        "nextjs_ssr": {
+          "value": "conditional",
+          "note": "The page supports Next.js 12 through 15 ('up through Next.js 15') and is undated. The Next.js 16.4 post makes create-next-app default to Cache Components, so a new app is newer than the range the page states. Whether 16.x runs is unstated.",
+          "sources": [
+            "aws_amplify_nextjs",
+            "nextjs_16_4"
+          ]
+        },
+        "streaming_responses": {
+          "value": "conditional",
+          "note": "The page lists 'Next.js streaming' under unsupported features. The same page lists API routes and server-side rendered pages as supported and does not mention route handlers or HTTP streaming, so it does not say how far that phrase reaches. Next.js 16.4 describes Cache Components pages that stream static and dynamic content in one response. Treat any AI chat route on this host as unproven until a spike shows otherwise.",
+          "sources": [
+            "aws_amplify_nextjs",
+            "nextjs_16_4"
+          ]
+        },
+        "size_or_runtime_limits": {
+          "value": "conditional",
+          "note": "The page states a 4.3 MB maximum output image size. It states no request timeout or bundle size, which are the limits that matter for streaming.",
+          "sources": [
+            "aws_amplify_nextjs"
+          ]
+        },
+        "linked_backend": {
+          "value": "conditional",
+          "note": "No linked-backend feature is described. A CopilotKit blog describes a sample in the aws-samples repository that serves the front end from Amplify and adds a CopilotKit runtime on Lambda behind API Gateway. The post says AWS's base template does not have that server, so it is a bridge you build.",
+          "sources": [
+            "aws_amplify_nextjs",
+            "copilotkit_agentcore_blog"
+          ]
+        },
+        "ga_status": {
+          "value": "unstated",
+          "note": "The page carries no generally-available or preview label. It says Amplify Hosting compute was released in November 2022.",
+          "sources": [
+            "aws_amplify_nextjs"
+          ]
+        }
+      }
+    },
+    {
+      "id": "aws-ecs-alb",
+      "name": "Amazon ECS Express Mode or Fargate behind an Application Load Balancer",
+      "kind": "hosting",
+      "cloud": "aws",
+      "facts": {
+        "nextjs_ssr": {
+          "value": "unstated",
+          "note": "Neither ECS page mentions Next.js. Express Mode is described for stateless web applications and APIs in a container, so the Next.js build, standalone output and Node version are yours to own.",
+          "sources": [
+            "aws_ecs_express",
+            "aws_ecs_fargate"
+          ]
+        },
+        "streaming_responses": {
+          "value": "unstated",
+          "note": "Neither ECS page nor the load balancer page states whether streamed responses work. The load balancer page says to send at least 1 byte before each idle timeout elapses so lengthy operations can complete. Test it through the real load balancer.",
+          "sources": [
+            "aws_alb_attributes",
+            "aws_ecs_express",
+            "aws_ecs_fargate"
+          ]
+        },
+        "size_or_runtime_limits": {
+          "value": "yes",
+          "note": "Load balancer idle timeout defaults to 60 seconds: with no data sent or received, it closes the connection. Send at least 1 byte before it elapses or raise it; the page gives no upper limit. HTTP/2 PING frames do not reset it. Keep the app's own idle timeout larger or risk a 502. HTTP client keepalive defaults to 3600 seconds (60 to 604800): after it elapses, the load balancer accepts one more request and then closes gracefully. Express Mode shares load balancers across services on the same networking configuration, so check who else is affected before changing an attribute.",
+          "sources": [
+            "aws_alb_attributes",
+            "aws_ecs_express"
+          ]
+        },
+        "linked_backend": {
+          "value": "conditional",
+          "note": "No managed link is described. Express Mode can serve private HTTPS applications and each Fargate task has its own network interface, so a private agent service in the same network is possible, but the wiring is yours.",
+          "sources": [
+            "aws_ecs_express",
+            "aws_ecs_fargate"
+          ]
+        },
+        "ga_status": {
+          "value": "unstated",
+          "note": "Neither ECS page prints a launch stage. Express Mode is available wherever ECS and Fargate are.",
+          "sources": [
+            "aws_ecs_express",
+            "aws_ecs_fargate"
+          ]
+        }
+      }
+    },
+    {
+      "id": "aws-cloudfront-lambda-streaming",
+      "name": "Amazon CloudFront in front of Lambda response streaming",
+      "kind": "hosting",
+      "cloud": "aws",
+      "facts": {
+        "nextjs_ssr": {
+          "value": "unstated",
+          "note": "Neither page mentions Next.js. Running it on Lambda is a custom build.",
+          "sources": [
+            "aws_lambda_streaming",
+            "aws_cloudfront_origin"
+          ]
+        },
+        "streaming_responses": {
+          "value": "conditional",
+          "note": "Lambda says functions natively stream through function URLs, the InvokeWithResponseStream API and the API Gateway proxy integration, on Node.js managed runtimes and not yet in all Regions. Function URLs do not stream inside a VPC. Neither the Lambda page nor the CloudFront page says a stream passes through CloudFront, so spike that hop.",
+          "sources": [
+            "aws_lambda_streaming",
+            "aws_cloudfront_origin"
+          ]
+        },
+        "size_or_runtime_limits": {
+          "value": "yes",
+          "note": "CloudFront's origin response timeout defaults to 30 seconds and applies both to the first response and to the gap between packets. On POST, which is how a chat request arrives, a timeout drops the connection with no retry. An optional response completion timeout is a hard total ending in a 504; if unset, CloudFront enforces no maximum. Lambda streams the first 6 MB uncapped, then at most 2 MBps. A broken client connection does not stop the function and you pay for the full duration. The function timeout is not on these pages.",
+          "sources": [
+            "aws_cloudfront_origin",
+            "aws_lambda_streaming"
+          ]
+        },
+        "linked_backend": {
+          "value": "unstated",
+          "note": "Neither page describes linking an agent backend.",
+          "sources": [
+            "aws_lambda_streaming",
+            "aws_cloudfront_origin"
+          ]
+        },
+        "ga_status": {
+          "value": "unstated",
+          "note": "Neither page prints a launch stage for this path. Lambda says response streaming is not yet available in all Regions.",
+          "sources": [
+            "aws_lambda_streaming",
+            "aws_cloudfront_origin"
+          ]
+        }
+      }
+    },
+    {
+      "id": "aws-app-runner",
+      "name": "AWS App Runner (closed to new customers)",
+      "kind": "hosting",
+      "cloud": "aws",
+      "facts": {
+        "nextjs_ssr": {
+          "value": "unstated",
+          "note": "Closed to new customers, so this applies only to an existing account. The overview does not mention Next.js.",
+          "sources": [
+            "aws_app_runner"
+          ]
+        },
+        "streaming_responses": {
+          "value": "unstated",
+          "note": "Closed to new customers, so this applies only to an existing account. The overview does not mention streaming. AWS recommends ECS Express Mode instead.",
+          "sources": [
+            "aws_app_runner"
+          ]
+        },
+        "size_or_runtime_limits": {
+          "value": "unstated",
+          "note": "The overview states no request or size limit.",
+          "sources": [
+            "aws_app_runner"
+          ]
+        },
+        "linked_backend": {
+          "value": "unstated",
+          "note": "The overview does not describe linking an agent backend.",
+          "sources": [
+            "aws_app_runner"
+          ]
+        },
+        "ga_status": {
+          "value": "no",
+          "note": "AWS says App Runner is no longer open to new customers, existing customers can continue as normal, and it recommends Amazon ECS Express Mode for anyone else.",
+          "sources": [
+            "aws_app_runner"
+          ]
+        }
+      }
+    },
+    {
+      "id": "azure-static-web-apps-hybrid",
+      "name": "Azure Static Web Apps, hybrid Next.js",
+      "kind": "hosting",
+      "cloud": "azure",
+      "facts": {
+        "nextjs_ssr": {
+          "value": "yes",
+          "note": "Hybrid mode supports the App Router, React Server Components, route handlers and middleware. Next.js backend functions run on a dedicated App Service instance. The page's server-side rendering steps need the Standard plan or above and an App Service Plan of at least S1. No Next.js version range is stated.",
+          "sources": [
+            "azure_swa_nextjs"
+          ]
+        },
+        "streaming_responses": {
+          "value": "unstated",
+          "note": "The page is silent on streamed responses. The server side runs on App Service behind the static host, so test the path end to end.",
+          "sources": [
+            "azure_swa_nextjs"
+          ]
+        },
+        "size_or_runtime_limits": {
+          "value": "conditional",
+          "note": "Maximum hybrid app size is 250 MB (use Next.js standalone output; static export if still too large). No request timeout is stated.",
+          "sources": [
+            "azure_swa_nextjs"
+          ]
+        },
+        "linked_backend": {
+          "value": "no",
+          "note": "Linked APIs on Azure Functions, App Service, Container Apps or API Management are listed as unsupported in hybrid mode. Static HTML export allows linked backends, but loses server rendering. The same page's server-side rendering steps use 'Configure linked backend' with an App Service Plan and do not explain how that fits the unsupported list, so confirm with Microsoft if it matters.",
+          "sources": [
+            "azure_swa_nextjs"
+          ]
+        },
+        "ga_status": {
+          "value": "conditional",
+          "note": "The page labels hybrid Next.js 'preview' and gives no GA date. The static-export model is not labelled.",
+          "sources": [
+            "azure_swa_nextjs"
+          ]
+        }
+      }
+    },
+    {
+      "id": "azure-container-apps",
+      "name": "Azure Container Apps",
+      "kind": "hosting",
+      "cloud": "azure",
+      "facts": {
+        "nextjs_ssr": {
+          "value": "unstated",
+          "note": "Neither the Well-Architected guide nor the ingress page mentions Next.js. It is a container host, so a Next.js server container is a custom deployment that Microsoft does not document on these pages.",
+          "sources": [
+            "azure_ca_waf",
+            "azure_ca_ingress"
+          ]
+        },
+        "streaming_responses": {
+          "value": "conditional",
+          "note": "HTTP ingress supports HTTP/1.1, HTTP/2 and WebSocket. Streaming or SSE responses are not named. Request time out is 240 seconds on the ingress page, which does not say whether it counts idle or total time; the Well-Architected guide says premium ingress gives configurable timeouts.",
+          "sources": [
+            "azure_ca_ingress",
+            "azure_ca_waf"
+          ]
+        },
+        "size_or_runtime_limits": {
+          "value": "yes",
+          "note": "Ingress request time out: 240 seconds (ingress page, last updated 2026-10-22), not stated as idle or total. Premium ingress allows custom timeouts and dedicated proxy resources. The quotas page lists cores, environments, GPUs and session pools with no request or run duration, and limits Express apps to 30 replicas and Sandboxes and Express to 2,000 cores.",
+          "sources": [
+            "azure_ca_ingress",
+            "azure_ca_waf",
+            "azure_ca_quotas"
+          ]
+        },
+        "linked_backend": {
+          "value": "yes",
+          "note": "Apps in one environment can call each other through internal ingress. Session affinity is available for sticky routing. The guide recommends at least three replicas for ingress apps and minimum always-ready replicas against cold starts.",
+          "sources": [
+            "azure_ca_ingress",
+            "azure_ca_waf"
+          ]
+        },
+        "ga_status": {
+          "value": "unstated",
+          "note": "The pages checked label no release stage for the service. They recommend evaluating Container Apps express first without stating its stage.",
+          "sources": [
+            "azure_ca_waf"
+          ]
+        }
+      }
+    },
+    {
+      "id": "cloud-run",
+      "name": "Google Cloud Run",
+      "kind": "hosting",
+      "cloud": "gcp",
+      "facts": {
+        "nextjs_ssr": {
+          "value": "conditional",
+          "note": "A Hello World quickstart deploys create-next-app@16 from source with a generated Dockerfile, so 16 is the version shown. It never says server rendering works, and points to Firebase App Hosting for server-rendered Next.js apps. It asks for Node.js 20 or later, which is older than AI SDK 7's Node.js 22 floor.",
+          "sources": [
+            "gcp_run_nextjs",
+            "ai_sdk_migration_7"
+          ]
+        },
+        "streaming_responses": {
+          "value": "yes",
+          "note": "The Cloud Run agents page says it supports streaming HTTP responses and WebSockets. The request-timeout page does not mention either.",
+          "sources": [
+            "gcp_run_agents",
+            "gcp_run_timeout"
+          ]
+        },
+        "size_or_runtime_limits": {
+          "value": "yes",
+          "note": "Request timeout defaults to 5 minutes (300 seconds) and can be raised to 60 minutes (3600 seconds). The console accepts 1 to 3600; only the gcloud text says 'less than 60 minutes'. Past 15 minutes Google recommends retries and a reconnecting client. The quotas page repeats 60 minutes per request, caps HTTP/1 responses at 32 MiB unless chunked or streaming, and allows 1,000 concurrent requests per instance. Job tasks (168 hours) and instances (7 days) have separate limits and are not request timeouts.",
+          "sources": [
+            "gcp_run_timeout",
+            "gcp_run_quotas"
+          ]
+        },
+        "linked_backend": {
+          "value": "conditional",
+          "note": "Agents run as Cloud Run services or instances with built-in Agent Identity and Agent Registry. No page checked describes linking a front-end service to an agent service.",
+          "sources": [
+            "gcp_run_agents"
+          ]
+        },
+        "ga_status": {
+          "value": "unstated",
+          "note": "The Next.js quickstart labels nothing preview or generally available.",
+          "sources": [
+            "gcp_run_nextjs"
+          ]
+        }
+      }
+    },
+    {
+      "id": "firebase-app-hosting",
+      "name": "Firebase App Hosting",
+      "kind": "hosting",
+      "cloud": "gcp",
+      "facts": {
+        "nextjs_ssr": {
+          "value": "yes",
+          "note": "The Firebase page says App Hosting has built-in, preconfigured support for Next.js and Angular. The Cloud Run quickstart points to it for CDN-backed, server-rendered Next.js apps.",
+          "sources": [
+            "firebase_app_hosting",
+            "gcp_run_nextjs"
+          ]
+        },
+        "streaming_responses": {
+          "value": "conditional",
+          "note": "The page tells teams adding generative AI to use App Hosting's streaming support to maintain fast initial load times. That describes page loading. It does not say a long streamed API response works and gives no detail on how.",
+          "sources": [
+            "firebase_app_hosting"
+          ]
+        },
+        "size_or_runtime_limits": {
+          "value": "unstated",
+          "note": "The overview page states no request timeout or size limit. It says apps are served on Cloud Run, so the Cloud Run timeout page may apply, but this page does not say so.",
+          "sources": [
+            "firebase_app_hosting"
+          ]
+        },
+        "linked_backend": {
+          "value": "unstated",
+          "note": "The overview page does not describe linking an agent backend.",
+          "sources": [
+            "firebase_app_hosting"
+          ]
+        },
+        "ga_status": {
+          "value": "unstated",
+          "note": "The overview page states no release stage.",
+          "sources": [
+            "firebase_app_hosting"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1294 @@
+{
+  "schema": "agent-stack/facts@1",
+  "title": "Cloud and provider agent backends",
+  "as_of": "2026-11-06",
+  "sources": {
+    "aws-quotas": {
+      "title": "Quotas for Amazon Bedrock AgentCore",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/bedrock-agentcore-limits.html",
+      "kind": "vendor"
+    },
+    "aws-lifecycle": {
+      "title": "Configure AgentCore lifecycle settings",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-lifecycle-settings.html",
+      "kind": "vendor"
+    },
+    "aws-microvm": {
+      "title": "AgentCore Runtime: how it works (microVMs)",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html",
+      "kind": "vendor"
+    },
+    "aws-security": {
+      "title": "Security best practices for AgentCore Runtime",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-security-best-practices.html",
+      "kind": "vendor"
+    },
+    "aws-auth": {
+      "title": "AgentCore Inbound Auth and Outbound Auth",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html",
+      "kind": "vendor"
+    },
+    "aws-identity": {
+      "title": "AgentCore Identity",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html",
+      "kind": "vendor"
+    },
+    "aws-release": {
+      "title": "AgentCore release notes",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html",
+      "kind": "vendor"
+    },
+    "aws-regions": {
+      "title": "AgentCore supported Regions",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-regions.html",
+      "kind": "vendor"
+    },
+    "aws-gateway": {
+      "title": "AgentCore Gateway core concepts",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-core-concepts.html",
+      "kind": "vendor"
+    },
+    "aws-agentops": {
+      "title": "AgentOps with Amazon Bedrock AgentCore (AWS blog)",
+      "url": "https://aws.amazon.com/blogs/machine-learning/agentops-operationalize-agentic-ai-at-scale-with-amazon-bedrock-agentcore/",
+      "kind": "vendor"
+    },
+    "aws-lambda-durable": {
+      "title": "Lambda durable functions",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html",
+      "kind": "vendor"
+    },
+    "ms-overview": {
+      "title": "What is Foundry Agent Service",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview",
+      "kind": "vendor"
+    },
+    "ms-limits": {
+      "title": "Quotas and limits for Foundry Agent Service",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/limits-quotas-regions",
+      "kind": "vendor"
+    },
+    "ms-hosted": {
+      "title": "Hosted agents in Foundry Agent Service",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents",
+      "kind": "vendor"
+    },
+    "ms-sessions": {
+      "title": "Manage hosted agent sessions",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/manage-hosted-sessions",
+      "kind": "vendor"
+    },
+    "ms-mcp-auth": {
+      "title": "Set up MCP server authentication in Foundry",
+      "url": "https://learn.microsoft.com/azure/foundry/agents/how-to/mcp-authentication",
+      "kind": "vendor"
+    },
+    "ms-tool-auth": {
+      "title": "Toolbox authentication in Microsoft Foundry",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/tool-authentication",
+      "kind": "vendor"
+    },
+    "ms-identity": {
+      "title": "Agent identity concepts in Microsoft Foundry",
+      "url": "https://learn.microsoft.com/azure/foundry/agents/concepts/agent-identity",
+      "kind": "vendor"
+    },
+    "ms-baseline": {
+      "title": "Baseline Microsoft Foundry chat reference architecture",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
+      "kind": "vendor"
+    },
+    "ms-build": {
+      "title": "What's new in Microsoft Foundry: Build 2026 recap (2026-06-02)",
+      "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/",
+      "kind": "vendor"
+    },
+    "ms-toolbox": {
+      "title": "What is Toolbox in Microsoft Foundry",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog",
+      "kind": "vendor"
+    },
+    "ms-observability": {
+      "title": "Observability in generative AI (Foundry)",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/concepts/observability",
+      "kind": "vendor"
+    },
+    "ms-durable": {
+      "title": "Durable Extension for Microsoft Agent Framework",
+      "url": "https://learn.microsoft.com/agent-framework/integrations/durable-extension",
+      "kind": "vendor"
+    },
+    "ms-aca-waf": {
+      "title": "Architecture best practices for Azure Container Apps",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-container-apps",
+      "kind": "vendor"
+    },
+    "ms-aca-mcp": {
+      "title": "Host MCP servers on Azure Container Apps",
+      "url": "https://learn.microsoft.com/azure/container-apps/mcp-overview",
+      "kind": "vendor"
+    },
+    "g-release": {
+      "title": "Gemini Enterprise Agent Platform release notes",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes.md.txt",
+      "kind": "vendor"
+    },
+    "g-quotas": {
+      "title": "Agent Platform agent quotas",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas.md.txt",
+      "kind": "vendor"
+    },
+    "g-engine": {
+      "title": "Vertex AI Agent Engine overview (pre-rename page)",
+      "url": "https://docs.cloud.google.com/agent-builder/agent-engine/overview.md.txt",
+      "kind": "vendor"
+    },
+    "g-platform": {
+      "title": "Agent Platform overview",
+      "url": "https://docs.cloud.google.com/agent-builder/overview",
+      "kind": "vendor"
+    },
+    "g-identity": {
+      "title": "Agent Identity overview",
+      "url": "https://docs.cloud.google.com/agent-builder/agent-engine/agent-identity",
+      "kind": "vendor"
+    },
+    "g-runtime-identity": {
+      "title": "Agent Identity on Agent Runtime",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity.md.txt",
+      "kind": "vendor"
+    },
+    "g-gateway": {
+      "title": "Agent Gateway overview",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview.md.txt",
+      "kind": "vendor"
+    },
+    "g-gateway-setup": {
+      "title": "Set up Agent Gateway",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway.md.txt",
+      "kind": "vendor"
+    },
+    "g-gateway-iam": {
+      "title": "Assign identity and IAM policies for Agent Gateway",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam.md.txt",
+      "kind": "vendor"
+    },
+    "g-run-agents": {
+      "title": "Host AI agents on Cloud Run",
+      "url": "https://docs.cloud.google.com/run/docs/ai-agents.md.txt",
+      "kind": "vendor"
+    },
+    "g-run-mcp": {
+      "title": "Host MCP servers on Cloud Run",
+      "url": "https://docs.cloud.google.com/run/docs/host-mcp-servers.md.txt",
+      "kind": "vendor"
+    },
+    "g-sessions": {
+      "title": "Agent Platform Sessions",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions.md.txt",
+      "kind": "vendor"
+    },
+    "g-memory": {
+      "title": "Agent Platform Memory Bank",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank.md.txt",
+      "kind": "vendor"
+    },
+    "g-eval": {
+      "title": "Evaluate agents (Agent Platform)",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents.md.txt",
+      "kind": "vendor"
+    },
+    "g-next": {
+      "title": "Google Cloud Next 2026 wrap-up (2026-04-25)",
+      "url": "https://cloud.google.com/blog/topics/google-cloud-next/google-cloud-next-2026-wrap-up",
+      "kind": "vendor"
+    },
+    "g-multiagent": {
+      "title": "Multi-agent AI system in Google Cloud",
+      "url": "https://docs.cloud.google.com/architecture/multiagent-ai-system",
+      "kind": "vendor"
+    },
+    "g-managed": {
+      "title": "Managed Agents on Agent Platform",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents.md.txt",
+      "kind": "vendor"
+    },
+    "a-managed": {
+      "title": "Claude Managed Agents overview",
+      "url": "https://platform.claude.com/docs/en/managed-agents/overview",
+      "kind": "vendor"
+    },
+    "a-release": {
+      "title": "Claude Platform release notes",
+      "url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "kind": "vendor"
+    },
+    "a-engineering": {
+      "title": "Scaling Managed Agents (Anthropic engineering, 2026-04-08)",
+      "url": "https://www.anthropic.com/engineering/managed-agents",
+      "kind": "vendor"
+    },
+    "o-agents-api": {
+      "title": "OpenAI Agents API overview",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/overview",
+      "kind": "vendor"
+    },
+    "o-agents": {
+      "title": "OpenAI agents guide: compare runtime options",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "kind": "vendor"
+    },
+    "o-changelog": {
+      "title": "OpenAI API changelog",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "kind": "vendor"
+    },
+    "o-data": {
+      "title": "Data controls in the OpenAI platform",
+      "url": "https://developers.openai.com/api/docs/guides/your-data",
+      "kind": "vendor"
+    },
+    "o-mcp": {
+      "title": "OpenAI MCP servers guide",
+      "url": "https://developers.openai.com/api/docs/guides/tools-connectors-mcp",
+      "kind": "vendor"
+    },
+    "o-evals": {
+      "title": "OpenAI: evaluate agent workflows",
+      "url": "https://developers.openai.com/api/docs/guides/agent-evals",
+      "kind": "vendor"
+    },
+    "aws-ecs-fargate": {
+      "title": "Architect for AWS Fargate for Amazon ECS",
+      "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html",
+      "kind": "vendor"
+    },
+    "aws-ecs-express": {
+      "title": "Amazon ECS Express Mode",
+      "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html",
+      "kind": "vendor"
+    },
+    "aws-alb-attributes": {
+      "title": "Edit attributes for your Application Load Balancer",
+      "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-load-balancer-attributes.html",
+      "kind": "vendor"
+    },
+    "aws-app-runner": {
+      "title": "What is AWS App Runner?",
+      "url": "https://docs.aws.amazon.com/apprunner/latest/dg/what-is-apprunner.html",
+      "kind": "vendor"
+    },
+    "ms-aca-quotas": {
+      "title": "Quotas for Azure Container Apps",
+      "url": "https://learn.microsoft.com/en-us/azure/container-apps/quotas",
+      "kind": "vendor"
+    },
+    "ms-aca-ingress": {
+      "title": "Ingress in Azure Container Apps",
+      "url": "https://learn.microsoft.com/en-us/azure/container-apps/ingress-overview",
+      "kind": "vendor"
+    },
+    "g-run-quotas": {
+      "title": "Cloud Run quotas and limits",
+      "url": "https://docs.cloud.google.com/run/quotas",
+      "kind": "vendor"
+    }
+  },
+  "fact_definitions": {
+    "remote_mcp": "The backend can call remote MCP servers as tools, or host one, on a page the vendor publishes. The note gives the path and its traps.",
+    "per_user_identity": "A tool call can run with the end user's own delegated credentials rather than one shared identity. Conditional when it needs a stated setup, tenant match or a narrower-status feature.",
+    "max_run_duration": "A single unattended run can last hours and the vendor prints the limit. Yes needs a printed number. Unstated means no maximum was found on the pages cited.",
+    "session_isolation": "The vendor states that each session gets its own compute and state boundary. The note says what the boundary does not cover.",
+    "durable_resume": "A session or run survives a process failure or a long wait and continues without redoing finished work. Conditional when only files or history survive, or when a separate service does it.",
+    "sandboxed_code": "Generated code can run in an isolated environment the vendor documents.",
+    "a2a": "The backend documents the Agent2Agent protocol. The note gives the version and status label.",
+    "otel_tracing": "The backend documents OpenTelemetry traces. Yes does not mean conformance to the GenAI semantic conventions unless the note says so.",
+    "private_networking": "The agent can reach private resources, or be reached, without crossing the public internet, on a page the vendor publishes.",
+    "ga_status": "The vendor labels this option itself generally available. No means a printed beta or preview label. Unstated means no label for the option itself, whatever its parts say.",
+    "memory_service": "A managed memory store across sessions. Conditional when its status is narrower than the option's or when it needs another service.",
+    "evaluation_service": "A managed service scores agent runs. Conditional when its status is narrower than the option's or when coverage is partial."
+  },
+  "options": [
+    {
+      "id": "agentcore-runtime",
+      "name": "Amazon Bedrock AgentCore Runtime",
+      "cloud": "aws",
+      "kind": "managed-runtime",
+      "facts": {
+        "remote_mcp": {
+          "value": "yes",
+          "note": "Runtime hosts MCP servers and Gateway aggregates MCP targets into one virtual server. Adjustable defaults: 100 targets per gateway, 1,000 tools per target, 15 minute invocation timeout. Gateway supports the MCP Tasks extension on protocol 2026-07-28 for long tool calls (October 2026 release note).",
+          "sources": [
+            "aws-microvm",
+            "aws-gateway",
+            "aws-quotas",
+            "aws-release"
+          ]
+        },
+        "per_user_identity": {
+          "value": "conditional",
+          "note": "Needs JWT inbound. The runtime exchanges the token for a Workload Access Token, and three-legged OAuth tokens are stored by AgentCore Identity, keyed by workload identity and user ID. On-Behalf-Of exchange added April 2026. A runtime accepts SigV4 or JWT, not both. The SigV4 user-ID header is an opaque value AWS says it does not verify, and AWS points production at JWT.",
+          "sources": [
+            "aws-auth",
+            "aws-identity",
+            "aws-release",
+            "aws-security"
+          ]
+        },
+        "max_run_duration": {
+          "value": "conditional",
+          "note": "Up to 14 days only for asynchronous jobs on the Instances compute type (EC2 in your account, 9 Regions), and only after raising maxLifetime on both the runtime and the capacity provider, since both default to 8 hours. On microVMs the asynchronous job and session limit is 8 hours. Synchronous requests (15 minutes) and streaming or WebSocket connections (60 minutes) carry no compute qualifier on the quotas page, so do not expect them to stretch on Instances. These ceilings are not adjustable.",
+          "sources": [
+            "aws-quotas",
+            "aws-lifecycle",
+            "aws-regions"
+          ],
+          "quantity": {
+            "value": 336,
+            "unit": "hours"
+          }
+        },
+        "session_isolation": {
+          "value": "conditional",
+          "note": "On microVMs, one microVM per session ID, 2 vCPU and 8 GB ceiling, memory sanitized at termination. Not stated for the Instances compute type, where multiple agents can share an instance, so do not assume this boundary and the 14-day limit together. AWS says AgentCore does not enforce session-to-user mappings, so that is your backend's job. Inside the microVM, any code can read execution role credentials from the metadata service, and on persistent file systems permissions are stored but access checks always succeed.",
+          "sources": [
+            "aws-microvm",
+            "aws-security",
+            "aws-quotas",
+            "aws-release"
+          ]
+        },
+        "durable_resume": {
+          "value": "conflict",
+          "note": "AWS pages do not agree on what survives. The microVM page calls session state ephemeral and points to Memory. The lifecycle page says a session can continue on a new instance. The release notes describe managed session storage that keeps the filesystem across stop and resume (1 GB, 14 days), Public Preview in March 2026 with no later GA entry found. Checkpoint and replay live in Lambda durable functions or Step Functions, which are separate services.",
+          "sources": [
+            "aws-microvm",
+            "aws-lifecycle",
+            "aws-release",
+            "aws-quotas",
+            "aws-lambda-durable"
+          ]
+        },
+        "sandboxed_code": {
+          "value": "yes",
+          "note": "Code Interpreter tool: 2 vCPU and 8 GB per session, 8 hour asynchronous command limit, 1,000 active sessions per account by default.",
+          "sources": [
+            "aws-quotas"
+          ]
+        },
+        "a2a": {
+          "value": "yes",
+          "note": "Runtime has an A2A protocol contract. Gateway fronts A2A through HTTP targets, which do no aggregation or tool search. The pages checked give no A2A version number.",
+          "sources": [
+            "aws-microvm",
+            "aws-gateway"
+          ]
+        },
+        "otel_tracing": {
+          "value": "yes",
+          "note": "Traces go to CloudWatch and need Transaction Search plus ADOT 0.18.0 or later for the agent log group destination. Evaluations reads OpenTelemetry GenAI conventions or OpenInference, which AWS describes for evaluation, not as a conformance claim for all spans.",
+          "sources": [
+            "aws-release",
+            "aws-agentops"
+          ]
+        },
+        "private_networking": {
+          "value": "yes",
+          "note": "VPC egress for Runtime, Gateway and Identity (April 2026 release note) and PrivateLink for data and control planes. AWS says public subnets give no internet access, so use private subnets with NAT. Container agents need ECR, S3 and CloudWatch Logs endpoints.",
+          "sources": [
+            "aws-release",
+            "aws-security"
+          ]
+        },
+        "ga_status": {
+          "value": "yes",
+          "note": "GA in nine Regions in October 2025; the Regions page lists 22 for microVMs when this snapshot was reviewed. Platform version V2 and Instances carry no printed label on the pages checked. From June 30, 2026 runtimes without MMDSv2 cannot be invoked.",
+          "sources": [
+            "aws-release",
+            "aws-regions",
+            "aws-security"
+          ]
+        },
+        "memory_service": {
+          "value": "yes",
+          "note": "AgentCore Memory with long-term strategies, namespaces and TTL. Listed in fewer Regions than Runtime. Check the Regions page if you need it next to the runtime.",
+          "sources": [
+            "aws-release",
+            "aws-regions",
+            "aws-quotas"
+          ]
+        },
+        "evaluation_service": {
+          "value": "yes",
+          "note": "Evaluations GA in March 2026 with 13 built-in evaluators, plus batch, online and A/B modes. It reads telemetry from several frameworks. All of this is AWS's description; no independent test was found.",
+          "sources": [
+            "aws-release"
+          ]
+        }
+      }
+    },
+    {
+      "id": "aws-container-host",
+      "name": "AWS container hosting (ECS on Fargate, ECS Express Mode)",
+      "cloud": "aws",
+      "kind": "container-host",
+      "facts": {
+        "remote_mcp": {
+          "value": "unstated",
+          "note": "The ECS pages reviewed do not mention MCP, so nothing from AWS covers a server hosted this way. The AgentCore release notes name EKS-hosted MCP servers as a private Gateway target. EKS itself was not reviewed.",
+          "sources": [
+            "aws-ecs-fargate",
+            "aws-ecs-express",
+            "aws-release"
+          ]
+        },
+        "per_user_identity": {
+          "value": "unstated",
+          "note": "The ECS pages reviewed do not mention it. AgentCore Identity's page says it integrates natively with AgentCore and does not address other hosts.",
+          "sources": [
+            "aws-ecs-fargate",
+            "aws-ecs-express",
+            "aws-identity"
+          ]
+        },
+        "max_run_duration": {
+          "value": "unstated",
+          "note": "No task time limit is printed on the Fargate or Express Mode pages. AWS can retire a task on a vulnerable platform revision, and Fargate Spot gives a two-minute interruption warning, so a long task needs a restart path. Express Mode describes stateless services that serve HTTP, and an HTTP turn is also bound by the load balancer, whose idle timeout defaults to 60 seconds. ECS quotas are on a separate page not reviewed.",
+          "sources": [
+            "aws-ecs-fargate",
+            "aws-ecs-express",
+            "aws-alb-attributes"
+          ]
+        },
+        "session_isolation": {
+          "value": "conditional",
+          "note": "Each Fargate task has its own isolation boundary and shares no kernel, CPU, memory or network interface with another task. A task is not a session, so per-session isolation exists only if you start one task per session. Express Mode is described for stateless apps behind a shared load balancer, which does not suit that pattern.",
+          "sources": [
+            "aws-ecs-fargate",
+            "aws-ecs-express"
+          ]
+        },
+        "durable_resume": {
+          "value": "unstated",
+          "note": "The ECS pages reviewed state no durable execution, and a retired or Spot-interrupted task stops. Lambda durable functions run inside Lambda, per AWS's own comparison, so they are not a property of a container host.",
+          "sources": [
+            "aws-ecs-fargate",
+            "aws-lambda-durable"
+          ]
+        },
+        "sandboxed_code": {
+          "value": "unstated",
+          "note": "The Fargate task boundary is documented, but no page reviewed describes running generated or untrusted code in it.",
+          "sources": [
+            "aws-ecs-fargate"
+          ]
+        },
+        "a2a": {
+          "value": "unstated",
+          "note": "The ECS pages reviewed do not mention A2A. Your code can implement it, but no platform statement exists here.",
+          "sources": [
+            "aws-ecs-fargate",
+            "aws-ecs-express"
+          ]
+        },
+        "otel_tracing": {
+          "value": "unstated",
+          "note": "Express Mode lists monitoring among what it sets up and Fargate lists CloudWatch usage metrics. Neither mentions OpenTelemetry.",
+          "sources": [
+            "aws-ecs-fargate",
+            "aws-ecs-express"
+          ]
+        },
+        "private_networking": {
+          "value": "yes",
+          "note": "Express Mode supports public or private HTTPS applications. Each Fargate task has its own elastic network interface in awsvpc mode, and services can sit behind an Application, Network or Gateway Load Balancer.",
+          "sources": [
+            "aws-ecs-fargate",
+            "aws-ecs-express"
+          ]
+        },
+        "ga_status": {
+          "value": "unstated",
+          "note": "Neither ECS page prints a launch stage. Express Mode is available wherever ECS and Fargate are. Among AWS's other container hosts, App Runner says it is no longer open to new customers and recommends Express Mode. EKS was not reviewed.",
+          "sources": [
+            "aws-ecs-fargate",
+            "aws-ecs-express",
+            "aws-app-runner"
+          ]
+        },
+        "memory_service": {
+          "value": "unstated",
+          "note": "The ECS pages reviewed name no memory service. Whether AgentCore Memory is callable from outside Runtime was not checked.",
+          "sources": [
+            "aws-ecs-fargate",
+            "aws-ecs-express"
+          ]
+        },
+        "evaluation_service": {
+          "value": "unstated",
+          "note": "The ECS pages reviewed name no evaluation service. The AgentCore release notes say A/B testing and recommendations work regardless of where agents run, naming AgentCore Runtime, AWS Lambda, Amazon EKS and non-AWS environments, and Evaluations accepts generic OpenTelemetry GenAI telemetry. ECS is not named, so test it.",
+          "sources": [
+            "aws-ecs-fargate",
+            "aws-ecs-express",
+            "aws-release"
+          ]
+        }
+      }
+    },
+    {
+      "id": "foundry-hosted-agents",
+      "name": "Microsoft Foundry hosted agents",
+      "cloud": "azure",
+      "kind": "managed-runtime",
+      "facts": {
+        "remote_mcp": {
+          "value": "yes",
+          "note": "Foundry tools reach the agent through a Toolbox MCP endpoint, and agent code can also use standard MCP clients. The June 2026 recap calls Toolbox public preview; the later concept page labels only Skills as preview.",
+          "sources": [
+            "ms-hosted",
+            "ms-toolbox",
+            "ms-build"
+          ]
+        },
+        "per_user_identity": {
+          "value": "conditional",
+          "note": "Use oauth2 or user-entra-token connections through a Toolbox. With Agent Framework use FoundryToolbox or AddFoundryToolboxes, which forward the call ID the proxy needs. Entra tenant must match the project; cross-tenant exchange is not supported. Users need at least Foundry Agent Consumer. AgentOnBehalfOfUser is preview, and direct toolbox clients cannot use it.",
+          "sources": [
+            "ms-tool-auth",
+            "ms-mcp-auth",
+            "ms-identity",
+            "ms-hosted"
+          ]
+        },
+        "max_run_duration": {
+          "value": "unstated",
+          "note": "No maximum turn or run duration on the pages checked. Printed limits are idle timeout 2 to 240 minutes (default 15) and deletion after 30 days of inactivity. The session is kept; compute is not.",
+          "sources": [
+            "ms-hosted",
+            "ms-sessions",
+            "ms-limits"
+          ]
+        },
+        "session_isolation": {
+          "value": "yes",
+          "note": "Each session gets a VM-isolated sandbox. Per-user scoping only applies when the request carries the end user's identity. With a shared app identity the platform sees one caller, and with delegated identities it does not separate users that share a session ID. A header isolation key is a partition, not authorization, and is not validated.",
+          "sources": [
+            "ms-hosted",
+            "ms-sessions",
+            "ms-baseline"
+          ]
+        },
+        "durable_resume": {
+          "value": "conditional",
+          "note": "$HOME and /files persist across idle and restore on new compute, and a separate key-value state store defaults to a 30-day idle window. In-flight work needs the opt-in resilient mode: background mode alone does not survive a process stop. A stopped session is not guaranteed to restart on its own. Multi-step orchestration is the separate Durable Extension, installed from prerelease packages.",
+          "sources": [
+            "ms-hosted",
+            "ms-sessions",
+            "ms-durable"
+          ]
+        },
+        "sandboxed_code": {
+          "value": "yes",
+          "note": "Your code runs in the per-session sandbox: 0.5 vCPU/1 GiB, 1 vCPU/2 GiB or 2 vCPU/4 GiB, disk up to 20 GiB at 1 vCPU or larger with about 20 percent reserved. Uploads land under $HOME, so treat them as untrusted. Python and C# only.",
+          "sources": [
+            "ms-hosted",
+            "ms-sessions"
+          ]
+        },
+        "a2a": {
+          "value": "yes",
+          "note": "Printed as A2A v1.0 GA and v0.3 preview.",
+          "sources": [
+            "ms-hosted",
+            "ms-overview"
+          ]
+        },
+        "otel_tracing": {
+          "value": "yes",
+          "note": "Protocol libraries emit OpenTelemetry traces by default and the platform injects an Application Insights connection string. Microsoft does not state a GenAI convention version.",
+          "sources": [
+            "ms-hosted",
+            "ms-observability"
+          ]
+        },
+        "private_networking": {
+          "value": "yes",
+          "note": "Bring your own VNet for outbound traffic. Projects created after June 25, 2026 can use a private container registry; older ones need a publicly reachable one. A full delegated subnet returns 429 subnet_exhausted.",
+          "sources": [
+            "ms-hosted",
+            "ms-overview",
+            "ms-limits"
+          ]
+        },
+        "ga_status": {
+          "value": "unstated",
+          "note": "The June 2026 recap forecast GA by early July 2026. The hosted-agents page prints no label. The limits page calls the service GA with some sub-features in public preview, without saying which. Silence does not confirm GA. Concurrency: 2,000 sessions per subscription and region in seven regions, 1,000 elsewhere.",
+          "sources": [
+            "ms-build",
+            "ms-hosted",
+            "ms-limits"
+          ]
+        },
+        "memory_service": {
+          "value": "conditional",
+          "note": "Memory in Foundry Agent Service was public preview on 2026-06-02. No later status was found. The state store above is a separate key-value API, not a memory service.",
+          "sources": [
+            "ms-build",
+            "ms-overview",
+            "ms-hosted"
+          ]
+        },
+        "evaluation_service": {
+          "value": "yes",
+          "note": "Built-in and custom evaluators and a red teaming agent built on PyRIT. Agent optimizer and the rubric evaluator are preview. Risk, safety and playground evaluations bill by consumption.",
+          "sources": [
+            "ms-observability",
+            "ms-overview",
+            "ms-build"
+          ]
+        }
+      }
+    },
+    {
+      "id": "foundry-prompt-agents",
+      "name": "Microsoft Foundry prompt agents",
+      "cloud": "azure",
+      "kind": "managed-runtime",
+      "facts": {
+        "remote_mcp": {
+          "value": "yes",
+          "note": "The runtime accepts only remote MCP endpoints, so a local server must be hosted first. require_approval defaults to always, so calls stall on mcp_approval_request until you handle or change it.",
+          "sources": [
+            "ms-mcp-auth",
+            "ms-overview"
+          ]
+        },
+        "per_user_identity": {
+          "value": "conditional",
+          "note": "OAuth identity passthrough is scoped per connection per project, returns an oauth_consent_request to your client, and requires a matching tenant. Add offline_access for refresh. UserEntraToken works only for a listed set of endpoint patterns. AgentOnBehalfOfUser is preview. A Microsoft-audience token is refused for custom servers under managed OAuth. For the agent's own identity the pages differ: the baseline architecture says prompt agents in a project share one, while the identity page gives new agents their own and keeps the shared one for legacy agents.",
+          "sources": [
+            "ms-mcp-auth",
+            "ms-tool-auth",
+            "ms-identity",
+            "ms-baseline"
+          ]
+        },
+        "max_run_duration": {
+          "value": "unstated",
+          "note": "No maximum run duration found for text prompt agents. The only printed duration is 60 minutes per voice session.",
+          "sources": [
+            "ms-limits",
+            "ms-overview"
+          ]
+        },
+        "session_isolation": {
+          "value": "unstated",
+          "note": "No compute isolation statement for default prompt agents. Microsoft says the service does not enforce per-user authorization on conversations, so the app must check ownership or risk a BOLA flaw. The preview Copilot harness uses a conversation-scoped workspace.",
+          "sources": [
+            "ms-baseline",
+            "ms-limits"
+          ]
+        },
+        "durable_resume": {
+          "value": "conditional",
+          "note": "Conversation history persists in Foundry. No run checkpoint or resume is documented. The preview Copilot harness workspace survives idle and replacement.",
+          "sources": [
+            "ms-overview",
+            "ms-limits",
+            "ms-baseline"
+          ]
+        },
+        "sandboxed_code": {
+          "value": "conditional",
+          "note": "Through the code interpreter tool, or the Copilot harness, which is preview in nine regions and has file, shell, web and subagent built-ins with service-managed compute.",
+          "sources": [
+            "ms-overview",
+            "ms-limits"
+          ]
+        },
+        "a2a": {
+          "value": "yes",
+          "note": "Service-level statement: A2A v1.0 is GA and v0.3 is preview. A2A tool connections use agent identity or delegated access where the target supports it.",
+          "sources": [
+            "ms-overview",
+            "ms-identity"
+          ]
+        },
+        "otel_tracing": {
+          "value": "yes",
+          "note": "Foundry tracing is built on OpenTelemetry and integrates with Application Insights. Microsoft does not state a GenAI convention version.",
+          "sources": [
+            "ms-observability",
+            "ms-overview"
+          ]
+        },
+        "private_networking": {
+          "value": "yes",
+          "note": "Overview says private networking is available for prompt agents. The Foundry resource and VNet must share a region, and Bing grounding under private networking is limited to named regions.",
+          "sources": [
+            "ms-overview",
+            "ms-limits"
+          ]
+        },
+        "ga_status": {
+          "value": "conditional",
+          "note": "The limits page calls the service GA with some sub-features in public preview. The overview gives no label for prompt agents. Voice and the Copilot harness are preview.",
+          "sources": [
+            "ms-limits",
+            "ms-overview"
+          ]
+        },
+        "memory_service": {
+          "value": "conditional",
+          "note": "Memory was public preview on 2026-06-02 and no later status was found. The Copilot harness does not support Foundry Memory.",
+          "sources": [
+            "ms-build",
+            "ms-limits"
+          ]
+        },
+        "evaluation_service": {
+          "value": "yes",
+          "note": "Same Foundry evaluators as hosted agents. Playground evaluations bill by consumption. Voice agents have narrower evaluation support.",
+          "sources": [
+            "ms-observability",
+            "ms-overview"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gemini-agent-runtime",
+      "name": "Gemini Enterprise Agent Platform: Agent Runtime",
+      "cloud": "gcp",
+      "kind": "managed-runtime",
+      "facts": {
+        "remote_mcp": {
+          "value": "yes",
+          "note": "Agent Identity authenticates to MCP servers and Agent Gateway governs them. The gateway blocks traffic by default and governs up to 5,000 registered resources. Its setup samples print only protocols: MCP, although the overview also lists A2A, REST and gRPC.",
+          "sources": [
+            "g-identity",
+            "g-gateway",
+            "g-gateway-setup"
+          ]
+        },
+        "per_user_identity": {
+          "value": "conditional",
+          "note": "User-delegated three-legged OAuth through the Agent Identity auth manager. It needs agent identity set at deploy time through the v1beta1 client. A pipeline that deletes and recreates the agent gets a new principal that does not inherit IAM grants, so grant roles again as a deploy step. The newer Agent Identity API is Preview (2026-06-18).",
+          "sources": [
+            "g-identity",
+            "g-runtime-identity",
+            "g-release"
+          ]
+        },
+        "max_run_duration": {
+          "value": "yes",
+          "note": "The release note of 2026-04-22 says long-running operations up to 7 days. Default quota is 90 Query or StreamQuery per minute per project and region, which Google's own sizing example exceeds at 250 users.",
+          "sources": [
+            "g-release",
+            "g-quotas"
+          ],
+          "quantity": {
+            "value": 168,
+            "unit": "hours"
+          }
+        },
+        "session_isolation": {
+          "value": "unstated",
+          "note": "No per-session compute isolation statement for Runtime on the pages checked. Identity is per agent, not per session. Sandboxes are described as isolated, but they are a separate component.",
+          "sources": [
+            "g-engine",
+            "g-sessions",
+            "g-identity"
+          ]
+        },
+        "durable_resume": {
+          "value": "conditional",
+          "note": "Sessions keep event history and sandboxes can pause and resume with file system state (GA 2026-09-09). No page says a running agent resumes after a crash without redoing work. No Google durable-execution page was reviewed.",
+          "sources": [
+            "g-sessions",
+            "g-release"
+          ]
+        },
+        "sandboxed_code": {
+          "value": "yes",
+          "note": "Computer Use and Shell sandboxes GA on 2026-09-09 with VPC-SC, Private Service Connect, CMEK and pause and resume. Agent access to sandboxes through Agent Identity is printed as Preview.",
+          "sources": [
+            "g-release",
+            "g-runtime-identity"
+          ]
+        },
+        "a2a": {
+          "value": "conditional",
+          "note": "Quotas exist (60 post and 600 get requests per minute) and Agent Registry GA covers A2A 1.0. The older overview labels A2A preview, and no GA entry for A2A on Runtime was found.",
+          "sources": [
+            "g-quotas",
+            "g-release",
+            "g-engine"
+          ]
+        },
+        "otel_tracing": {
+          "value": "yes",
+          "note": "OpenTelemetry tracing is on by default for newly deployed ADK agents (Agent Observability GA, June 2026). Since 2026-08-13, ADK 2.6.0 or later can emit gen_ai metrics that follow the OpenTelemetry GenAI conventions, once an environment variable is set. That is the one explicit convention claim found in this set.",
+          "sources": [
+            "g-release"
+          ]
+        },
+        "private_networking": {
+          "value": "yes",
+          "note": "Private Service Connect interface and VPC Service Controls, described on the pre-rename page. Gateway VPC-SC only covers gateways created after 2026-09-08 using a connectivity template.",
+          "sources": [
+            "g-engine",
+            "g-release"
+          ]
+        },
+        "ga_status": {
+          "value": "unstated",
+          "note": "No GA or preview entry for Agent Runtime itself, in the release notes or the overview. Parts are dated: Agent Identity for GA (2026-04-22), Agent Gateway and Registry GA (June 2026). The Gateway overview still says GKE, Cloud Run and cross-cloud are coming soon. The separate Managed Agents API is Pre-GA and not for production use.",
+          "sources": [
+            "g-release",
+            "g-platform",
+            "g-engine",
+            "g-gateway",
+            "g-managed"
+          ]
+        },
+        "memory_service": {
+          "value": "yes",
+          "note": "Memory Bank. Sub-features are GA with dates; the product has no GA entry of its own. CMEK cannot be used with the global endpoint. Machine-learning processing can fall back to global Gemini endpoints where no regional endpoint exists, which matters for data residency.",
+          "sources": [
+            "g-memory",
+            "g-release"
+          ]
+        },
+        "evaluation_service": {
+          "value": "conditional",
+          "note": "Rapid, regression and online evaluation with a simulator. The evaluation page prints no launch stage, and the older overview labels quality and evaluation Preview.",
+          "sources": [
+            "g-eval",
+            "g-engine"
+          ]
+        }
+      }
+    },
+    {
+      "id": "azure-container-apps",
+      "name": "Azure Container Apps",
+      "cloud": "azure",
+      "kind": "container-host",
+      "facts": {
+        "remote_mcp": {
+          "value": "yes",
+          "note": "Host your own MCP server with no platform MCP awareness, or use preview platform-managed MCP on dynamic sessions (API key auth, protocol 2025-03-26). Microsoft's Foundry page says servers here must be stateless, on linux/amd64 and not privileged.",
+          "sources": [
+            "ms-aca-mcp",
+            "ms-mcp-auth"
+          ]
+        },
+        "per_user_identity": {
+          "value": "conditional",
+          "note": "Not a platform feature on the pages checked: managed identity is the workload's and Entra auth is inbound. Build the token plumbing, which Microsoft calls easy to get subtly wrong, or call a Foundry Toolbox as a direct client with a per-tool OAuth sign-in your client must handle.",
+          "sources": [
+            "ms-aca-waf",
+            "ms-aca-mcp",
+            "ms-tool-auth"
+          ]
+        },
+        "max_run_duration": {
+          "value": "unstated",
+          "note": "No run or job duration is printed. The quotas page reviewed lists cores, environments, GPUs, session pools, and Sandboxes and Express caps. The ingress page says request time out is 240 seconds, which is a per-request limit and not a run limit, and does not say whether it counts idle or total time. The Well-Architected guide says premium ingress allows custom timeouts. Container Apps jobs were not reviewed.",
+          "sources": [
+            "ms-aca-quotas",
+            "ms-aca-ingress",
+            "ms-aca-waf"
+          ]
+        },
+        "session_isolation": {
+          "value": "conditional",
+          "note": "Standard apps give container-level isolation. Per-session isolation needs Sandboxes or dynamic sessions (Hyper-V per session), which you must wire in.",
+          "sources": [
+            "ms-aca-waf",
+            "ms-aca-mcp"
+          ]
+        },
+        "durable_resume": {
+          "value": "conditional",
+          "note": "Not automatic. The Durable Extension runs self-hosted workers on containers against Durable Task Scheduler, from prerelease packages. Sandboxes can suspend and resume with state.",
+          "sources": [
+            "ms-durable",
+            "ms-aca-waf"
+          ]
+        },
+        "sandboxed_code": {
+          "value": "yes",
+          "note": "Sandboxes for untrusted code with state and explicit lifecycle; dynamic sessions for ephemeral execution. The guide prints no status label for Sandboxes.",
+          "sources": [
+            "ms-aca-waf"
+          ]
+        },
+        "a2a": {
+          "value": "unstated",
+          "note": "The pages checked do not mention A2A. Your code can implement it, but no platform statement exists here.",
+          "sources": [
+            "ms-aca-waf",
+            "ms-aca-mcp"
+          ]
+        },
+        "otel_tracing": {
+          "value": "yes",
+          "note": "Managed OpenTelemetry agent with several export destinations. Nothing on the page refers to GenAI conventions, so instrumentation is your job.",
+          "sources": [
+            "ms-aca-waf"
+          ]
+        },
+        "private_networking": {
+          "value": "yes",
+          "note": "Virtual network injection, private endpoints in workload profile environments, and user-defined routes for egress control.",
+          "sources": [
+            "ms-aca-waf"
+          ]
+        },
+        "ga_status": {
+          "value": "unstated",
+          "note": "The pages checked print no GA label for Container Apps. Platform-managed MCP on dynamic sessions is printed as preview.",
+          "sources": [
+            "ms-aca-waf",
+            "ms-aca-mcp"
+          ]
+        },
+        "memory_service": {
+          "value": "unstated",
+          "note": "No memory service on the pages checked. You choose a store.",
+          "sources": [
+            "ms-aca-waf"
+          ]
+        },
+        "evaluation_service": {
+          "value": "unstated",
+          "note": "No evaluation service on the Container Apps pages. The June 2026 Foundry recap lists tracing and evaluations for any framework as public preview, without naming this host.",
+          "sources": [
+            "ms-aca-waf",
+            "ms-build"
+          ]
+        }
+      }
+    },
+    {
+      "id": "cloud-run",
+      "name": "Google Cloud Run",
+      "cloud": "gcp",
+      "kind": "container-host",
+      "facts": {
+        "remote_mcp": {
+          "value": "yes",
+          "note": "Hosts streamable HTTP servers, not stdio. Documented auth is the Invoker IAM check or an OIDC token. The host page links the 2025-03-26 spec. The Gateway overview says Cloud Run support is coming soon through early preview, and the later Gateway GA entry does not say that scope changed.",
+          "sources": [
+            "g-run-mcp",
+            "g-gateway",
+            "g-release"
+          ]
+        },
+        "per_user_identity": {
+          "value": "conditional",
+          "note": "The Agent Identity overview lists Cloud Run as supported, and the auth manager brokers three-legged OAuth. The Runtime identity page documents only Runtime, the Gateway policy page uses a service-account principal for Cloud Run agents, and the Cloud Run setup page was not reviewed, so test delegated flow on this host. Google's recap said the platform integration was in preview with select customers in April 2026.",
+          "sources": [
+            "g-identity",
+            "g-run-agents",
+            "g-next",
+            "g-runtime-identity",
+            "g-gateway-iam"
+          ]
+        },
+        "max_run_duration": {
+          "value": "conditional",
+          "note": "Depends on the resource. Job tasks can run up to 168 hours, or 12 hours with GPUs. Instances restart automatically after 7 days of continuous execution when the restart policy is always or on-failure. Services stop at 60 minutes per request: that is a request timeout, not a run limit, so a service cannot hold one long turn open for hours. The quantity is the job and instance figure. The April 2026 recap said Cloud Run instances were in preview to select customers, and the quotas page prints no label.",
+          "sources": [
+            "g-run-quotas",
+            "g-run-agents",
+            "g-next"
+          ],
+          "quantity": {
+            "value": 168,
+            "unit": "hours"
+          }
+        },
+        "session_isolation": {
+          "value": "unstated",
+          "note": "Container instances are sandboxed, but a service serves many concurrent users, so that is not a per-session boundary. Per-session isolation is not stated.",
+          "sources": [
+            "g-run-agents"
+          ]
+        },
+        "durable_resume": {
+          "value": "unstated",
+          "note": "No durable execution statement. Instances are described as stateful always-on singletons. The state stores named are yours to wire in.",
+          "sources": [
+            "g-run-agents"
+          ]
+        },
+        "sandboxed_code": {
+          "value": "yes",
+          "note": "Page describes code execution with multi-layered sandboxing, or Agent Engine Code Execution, which needs at least one Agent Engine instance. No status label. The April 2026 recap called a built-in Cloud Run sandbox tool coming soon.",
+          "sources": [
+            "g-run-agents",
+            "g-next"
+          ]
+        },
+        "a2a": {
+          "value": "yes",
+          "note": "Linked build guide and Agent Registry integration for A2A authentication. The guide itself was not reviewed and no version is given.",
+          "sources": [
+            "g-run-agents"
+          ]
+        },
+        "otel_tracing": {
+          "value": "unstated",
+          "note": "The agent page names Langfuse and Arize as tools you can deploy and does not mention OpenTelemetry. The default-on tracing entry is for ADK on Agent Runtime, not this host.",
+          "sources": [
+            "g-run-agents",
+            "g-release"
+          ]
+        },
+        "private_networking": {
+          "value": "yes",
+          "note": "The quotas page describes Direct VPC egress to destinations on the VPC network, with its own instance limit and 1 Gbps per instance. The agent, MCP and reference architecture pages cover ingress, IAP and regional data residency. Private ingress was not reviewed.",
+          "sources": [
+            "g-run-quotas",
+            "g-run-agents",
+            "g-multiagent"
+          ]
+        },
+        "ga_status": {
+          "value": "unstated",
+          "note": "Pages checked print no launch stage for Cloud Run as an agent host.",
+          "sources": [
+            "g-run-agents",
+            "g-run-mcp"
+          ]
+        },
+        "memory_service": {
+          "value": "conditional",
+          "note": "Memorystore or Firestore are yours to run. Memory Bank needs at least one Agent Engine instance.",
+          "sources": [
+            "g-run-agents"
+          ]
+        },
+        "evaluation_service": {
+          "value": "unstated",
+          "note": "Cloud Run pages name none. The Agent Platform evaluation page does not mention Cloud Run.",
+          "sources": [
+            "g-run-agents",
+            "g-eval"
+          ]
+        }
+      }
+    },
+    {
+      "id": "claude-managed-agents",
+      "name": "Claude Managed Agents",
+      "cloud": "direct",
+      "kind": "provider-managed",
+      "facts": {
+        "remote_mcp": {
+          "value": "yes",
+          "note": "MCP servers are configured on the agent. MCP tunnels are a narrower research preview. No MCP revision is stated.",
+          "sources": [
+            "a-managed"
+          ]
+        },
+        "per_user_identity": {
+          "value": "unstated",
+          "note": "The overview is silent. Release notes describe stored credentials including mcp_oauth with background refresh, and the post keeps credentials outside the sandbox. Neither says one credential maps to one end user. The authentication page was not reviewed, so verify.",
+          "sources": [
+            "a-managed",
+            "a-release",
+            "a-engineering"
+          ]
+        },
+        "max_run_duration": {
+          "value": "unstated",
+          "note": "No maximum found. The overview says tasks run for minutes or hours. Session budgets (hard spend cap, pause on reached) are not a time limit. The reference page with limits was not reviewed.",
+          "sources": [
+            "a-managed",
+            "a-release"
+          ]
+        },
+        "session_isolation": {
+          "value": "unstated",
+          "note": "The overview says secure sandboxes and persistent filesystems, without stating a per-session boundary. Anthropic's post says credentials stay out of the sandbox and describes containers as replaceable.",
+          "sources": [
+            "a-managed",
+            "a-engineering"
+          ]
+        },
+        "durable_resume": {
+          "value": "yes",
+          "note": "Sessions resume after pauses and store history, sandbox state and outputs server-side, and the post describes a new harness rebuilding from the session log. Because of this, not eligible for Zero Data Retention or HIPAA BAA coverage, including self-hosted sandboxes.",
+          "sources": [
+            "a-managed",
+            "a-engineering"
+          ]
+        },
+        "sandboxed_code": {
+          "value": "yes",
+          "note": "Anthropic-managed cloud sandbox or a self-hosted sandbox on your infrastructure.",
+          "sources": [
+            "a-managed"
+          ]
+        },
+        "a2a": {
+          "value": "unstated",
+          "note": "The overview and release-note entries checked do not mention A2A.",
+          "sources": [
+            "a-managed",
+            "a-release"
+          ]
+        },
+        "otel_tracing": {
+          "value": "yes",
+          "note": "OpenTelemetry export covering Managed Agents sessions launched in beta on 2026-10-14. No GenAI convention claim was found.",
+          "sources": [
+            "a-release"
+          ]
+        },
+        "private_networking": {
+          "value": "conditional",
+          "note": "Self-hosted sandboxes run tools on your infrastructure, MCP tunnels are research preview, and cloud environments can limit hosts with allowed_hosts. Session history and outputs are stored server-side either way, and self-hosting does not change data-handling eligibility.",
+          "sources": [
+            "a-managed",
+            "a-release"
+          ]
+        },
+        "ga_status": {
+          "value": "no",
+          "note": "Printed: Managed Agents are in beta on every model, with the managed-agents-2026-04-01 header on all requests.",
+          "sources": [
+            "a-managed"
+          ]
+        },
+        "memory_service": {
+          "value": "yes",
+          "note": "Memory in beta since April 23, 2026. SDKs now send the agent-memory-2026-07-22 header on memory store calls. Attachable in self-hosted sandboxes. Dreams are research preview.",
+          "sources": [
+            "a-release",
+            "a-managed"
+          ]
+        },
+        "evaluation_service": {
+          "value": "conditional",
+          "note": "Outcomes entered beta on May 6, 2026 and let a session work against a defined result. The release note does not describe a scoring service over past runs, and the outcomes page was not reviewed.",
+          "sources": [
+            "a-release"
+          ]
+        }
+      }
+    },
+    {
+      "id": "openai-agents-api",
+      "name": "OpenAI Agents API",
+      "cloud": "direct",
+      "kind": "provider-managed",
+      "facts": {
+        "remote_mcp": {
+          "value": "yes",
+          "note": "MCP servers are configured on the agent, from the managed service or from your sandbox. The MCP connections page for this API was not reviewed; the MCP guide reviewed covers the Responses API.",
+          "sources": [
+            "o-agents-api",
+            "o-mcp",
+            "o-agents"
+          ]
+        },
+        "per_user_identity": {
+          "value": "unstated",
+          "note": "The overview is silent. The Responses API guide takes an OAuth token in the MCP tool's authorization field, so your app would hold per-user tokens, but that page does not cover this API.",
+          "sources": [
+            "o-agents-api",
+            "o-mcp"
+          ]
+        },
+        "max_run_duration": {
+          "value": "unstated",
+          "note": "No maximum found. OpenAI says long-running tasks, and hosted sandbox compute is billed during active turns since October 2026.",
+          "sources": [
+            "o-agents",
+            "o-agents-api",
+            "o-changelog"
+          ]
+        },
+        "session_isolation": {
+          "value": "unstated",
+          "note": "A sandbox is optional and is a separate resource from a session. Per-session isolation is not stated on the pages checked.",
+          "sources": [
+            "o-agents",
+            "o-agents-api"
+          ]
+        },
+        "durable_resume": {
+          "value": "yes",
+          "note": "OpenAI manages recovery and durable sessions, and resumes a session where it left off. State is kept until deleted. Not eligible for Zero Data Retention, even with a self-hosted sandbox.",
+          "sources": [
+            "o-agents-api",
+            "o-changelog",
+            "o-data"
+          ]
+        },
+        "sandboxed_code": {
+          "value": "yes",
+          "note": "OpenAI-hosted sandbox, self-hosted sandbox, or none. Pre-warming is available.",
+          "sources": [
+            "o-agents",
+            "o-changelog"
+          ]
+        },
+        "a2a": {
+          "value": "unstated",
+          "note": "The pages checked do not mention A2A.",
+          "sources": [
+            "o-agents-api",
+            "o-agents"
+          ]
+        },
+        "otel_tracing": {
+          "value": "unstated",
+          "note": "The pages reviewed do not mention OpenTelemetry. An observability page exists for this API and was not reviewed.",
+          "sources": [
+            "o-agents-api",
+            "o-agents",
+            "o-changelog"
+          ]
+        },
+        "private_networking": {
+          "value": "conditional",
+          "note": "A self-hosted sandbox keeps execution on your side, and Secure MCP Tunnel reaches private servers from supported OpenAI products. The tunnel passage reviewed is in the Responses API guide and does not name this API. Data residency is United States only.",
+          "sources": [
+            "o-agents-api",
+            "o-mcp"
+          ]
+        },
+        "ga_status": {
+          "value": "no",
+          "note": "Public beta since September 10, 2026, under client.beta.agents. OpenAI also points to Bedrock Managed Agents as an AWS service built on this API; that page was not reviewed.",
+          "sources": [
+            "o-changelog",
+            "o-agents-api"
+          ]
+        },
+        "memory_service": {
+          "value": "unstated",
+          "note": "Saved session state is documented. A memory store across sessions is not mentioned on the pages checked.",
+          "sources": [
+            "o-agents",
+            "o-agents-api"
+          ]
+        },
+        "evaluation_service": {
+          "value": "unstated",
+          "note": "OpenAI's trace grading page covers SDK apps and Agent Builder workflows and does not name this API.",
+          "sources": [
+            "o-evals",
+            "o-agents-api"
+          ]
+        }
+      }
+    }
+  ]
+}
