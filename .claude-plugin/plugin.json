@@ -1,0 +1,9 @@
+{
+  "name": "agent-stack",
+  "version": "0.1.0",
+  "description": "Compare and select frontier models, cloud agent backends and frontend stacks for AI products on AWS, Azure and Google Cloud: dated sourced facts, hard-constraint gates, per-route capacity arithmetic and checked decision records. Node.js 22+, no dependencies.",
+  "author": { "name": "ehartye" },
+  "repository": "https://github.com/ehartye/agent-stack",
+  "license": "MIT",
+  "keywords": ["technology-selection", "llm", "agents", "cloud-architecture", "frontend"]
+}
